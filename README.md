@@ -1,5 +1,6 @@
 # kokodajs
-Projekt pri predmetu računalništvo, twitterju podobna spletna stran. Nevem zakaj ne dela.
+Projekt pri predmetu računalništvo, twitterju podobna spletna stran. Zgleda da dela.
+
 
 
 
