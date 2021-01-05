@@ -15,7 +15,20 @@ def prijava_post():
 
 @bottle.get('/prijava/')
 def prijava():
-    return bottle.template('poskus.tpl')
+    return bottle.template('prijava.tpl')
+
+
+@bottle.post('/registracija_post/')
+def prijava_post():
+    bottle.redirect('/registracija/')
+
+
+
+@bottle.get('/registracija/')
+def prijava():
+    return bottle.template('registracija.tpl')
+
+
 
 
 
