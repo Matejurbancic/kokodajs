@@ -5,15 +5,17 @@ from datetime import datetime
 
 @bottle.get('/')
 def osnovna_stran():
-    return bottle.template('osnovna_druga.tpl')
+    return bottle.template('osnovna.tpl')
 
-#@bottle.get('/prijava/')
+@bottle.post('/prijava_post/')
+def prijava_post():
+    bottle.redirect('/prijava/')
 
 
 
-
-#@bottle.post('/prijava/')
-#uporavnik se prijavi
+@bottle.get('/prijava/')
+def prijava():
+    return bottle.template('poskus.tpl')
 
 
 
