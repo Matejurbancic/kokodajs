@@ -18,16 +18,27 @@
 
     <center>
       <div class="container">
-        <label for="uname"><b>uporabniško ime</b></label>
-        <input type="text" placeholder="vpiši uporabniško ime" name="uporabniško_ime" required>
+       {{!base}}
+        <form action="/registracija/" method="post">
+            <label for="uporabnisko_ime"><b>uporabniško ime</b></label>
+        <input type="text" placeholder="vpiši uporabniško ime" name="uporabnisko_ime" required>
 
-        <label for="psw"><b>geslo</b></label>
-        <input type="password" placeholder="vpiši geslo" name="psw" required>
+        <label for="geslo"><b>geslo</b></label>
+        <input type="password" placeholder="vpiši geslo" name="geslo" required>
 
-        <label for="psw"><b> ponovi geslo</b></label>
-        <input type="password" placeholder=" ponovno vpiši geslo" name="geslo" required>
+        <label for="geslo_ponovno"><b> ponovi geslo</b></label>
+        <input type="password" placeholder="ponovno vpiši geslo" name="geslo_ponovno" required>
 
-        <button type="submit">potrdi</button>
+        <input value="Registracija" type="submit" />
+
+
+
+
+
+        <!--   Username: <input name="username" type="text" />
+            Password: <input name="password" type="password" />
+            <input value="Login" type="submit" /> -->
+        </form>
     
       </div>
     </center>

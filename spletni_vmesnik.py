@@ -25,9 +25,23 @@ def prijava_post():
 
 
 @bottle.get('/registracija/')
-def prijava():
-    return bottle.template('registracija.tpl')
+def registracija():
+    return bottle.template('registracija_osnova.tpl')
 
+@bottle.post('/registracija/')
+def registracija_preverjanje():
+    upime = bottle.request.forms.get('uporabnisko_ime')
+    geslo = bottle.request.forms.get('geslo')
+    geslo_pon = bottle.request.forms.get('geslo_ponovno')
+    if geslo == geslo_pon:
+        bottle.redirect('/')
+    else:
+        bottle.redirect('/registracija/napaka')
+        
+
+@bottle.get('/registracija/napaka')
+def registracija():
+    return bottle.template('registracija_napaka.tpl')
 
 
 
