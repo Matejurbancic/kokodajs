@@ -1,0 +1,14 @@
+{
+  "uporabniki": [
+    {
+      "uporabnisko_ime": "ana",
+      "geslo": "bine",
+      "kokodajsi": []
+    },
+    {
+      "uporabnisko_ime": "\u00c4\u008dema\u00c5\u00a1",
+      "geslo": "lala",
+      "kokodajsi": []
+    }
+  ]
+}

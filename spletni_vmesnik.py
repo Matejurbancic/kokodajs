@@ -1,6 +1,6 @@
 import bottle
 from datetime import datetime
-
+from model import *
 
 
 @bottle.get('/')
@@ -30,11 +30,15 @@ def registracija():
 
 @bottle.post('/registracija/')
 def registracija_preverjanje():
-    upime = bottle.request.forms.get('uporabnisko_ime')
+    novo_up_ime = bottle.request.forms.get('novo_up_ime')
     geslo = bottle.request.forms.get('geslo')
     geslo_pon = bottle.request.forms.get('geslo_ponovno')
     if geslo == geslo_pon:
-        bottle.redirect('/')
+        if veljavno_uporabniško_ime(novo_up_ime, geslo):
+            dodaj_uporabnika(novo_up_ime, geslo)
+            return "<p>dela</p>"
+        else:
+            bottle.redirect('/registracija/neveljavno')
     else:
         bottle.redirect('/registracija/napaka')
         
@@ -44,7 +48,9 @@ def registracija():
     return bottle.template('registracija_napaka.tpl')
 
 
-
+@bottle.get('/registracija/neveljavno')
+def registracija():
+    return bottle.template('registracija_neveljavno.tpl')
 
 #@bottle.get('/registracija/')
 

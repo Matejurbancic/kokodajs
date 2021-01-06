@@ -20,8 +20,8 @@
       <div class="container">
        {{!base}}
         <form action="/registracija/" method="post">
-            <label for="uporabnisko_ime"><b>uporabniško ime</b></label>
-        <input type="text" placeholder="vpiši uporabniško ime" name="uporabnisko_ime" required>
+            <label for="novo_up_ime"><b>uporabniško ime</b></label>
+        <input type="text" placeholder="vpiši uporabniško ime" name="novo_up_ime" required>
 
         <label for="geslo"><b>geslo</b></label>
         <input type="password" placeholder="vpiši geslo" name="geslo" required>
