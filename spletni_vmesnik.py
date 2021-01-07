@@ -89,8 +89,26 @@ def kokodajs():
     if not bottle.request.get_cookie('uporabnik'):
         bottle.redirect('/')
     else:
-        a = bottle.request.get_cookie('uporabnik')
-        return bottle.template('glavna_stran.tpl', uporabnik = a)
+        uporabnisko_ime = bottle.request.get_cookie('uporabnik')
+        return bottle.template('glavna_stran.tpl', uporabnik = uporabnisko_ime)
+
+
+@bottle.post('/kokodajs')
+def nov_kokodajs():
+    kokodajs_tekst = bottle.request.forms.get('kokodajs')
+    uporabnisko_ime = bottle.request.get_cookie('uporabnik')
+    cas_kokodajsa = str(datetime.now())
+
+    if len(kokodajs_tekst) > 140:
+        bottle.template('predolg_kokodajs.tpl')
+    else:
+        dodaj_kokodajs(kokodajs_tekst, uporabnisko_ime, cas_kokodajsa)
+        return bottle.template('glavna_stran.tpl', uporabnik = uporabnisko_ime)
+
+
+
+    
+
 
 
 

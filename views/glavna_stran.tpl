@@ -42,13 +42,17 @@
 
     <center>
       <div class="container">
+      <form action="/kokodajs" method="post">
         <div class="input-group">
             <span class="input-group-text"></span>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
+            <textarea class="form-control" aria-label="With textarea" name="kokodajs" rows="2" cols="40"></textarea>
+            <input class="btn btn-primary" type="submit" value="kokodajsni">
         </div>
+      </form>
     
       </div>
     </center>
+    <br>
     <h7>Kokodjsi oseb, ki jim slediš:</h7>
 
 
