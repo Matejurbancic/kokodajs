@@ -21,46 +21,26 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">sledeči</a>
+          <a class="nav-link active" aria-current="page" href="/kokodajs">doma</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">vsi kokodajsi</a>
+          <a class="nav-link active" aria-current="page" href="/sledeci">vsi, ki jim slediš</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">sledilci</a>
+          <a class="nav-link active" aria-current="page" href="/vsi_kokodajsi">vsi kokodajsi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/ne_sledeci">vsi, ki jim ne slediš</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-  <div class="container">
-      
-    
-    <h4><center>Živijo {{uporabnik}}!</center></h4>
-    <h7>Napiši kokodajs: max 140 znakov</h7>
+  
+  
+ {{!base}} 
 
-    <center>
-      <div class="container">
-      <form action="/kokodajs" method="post">
-        <div class="input-group">
-            <span class="input-group-text"></span>
-            <textarea class="form-control" aria-label="With textarea" name="kokodajs" rows="2" cols="40"></textarea>
-            <input class="btn btn-primary" type="submit" value="kokodajsni">
-        </div>
-      </form>
-    
-      </div>
-    </center>
-    <br>
-    <h7>Kokodjsi oseb, ki jim slediš:</h7>
-
-
-
-
-
-
-  </div>
 
 
 

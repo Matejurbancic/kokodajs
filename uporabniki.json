@@ -3,42 +3,16 @@
     {
       "uporabnisko_ime": "ana",
       "geslo": "bine",
-      "kokodajsi": []
+      "sledeci": [
+        "bine"
+      ],
+      "sledilci": 0
     },
     {
-      "uporabnisko_ime": "\u00c4\u008dema\u00c5\u00a1",
-      "geslo": "lala",
-      "kokodajsi": []
-    },
-    {
-      "uporabnisko_ime": "q",
-      "geslo": "q",
-      "kokodajsi": []
-    },
-    {
-      "uporabnisko_ime": "la",
-      "geslo": "la",
-      "kokodajsi": []
-    },
-    {
-      "uporabnisko_ime": "nevem",
-      "geslo": "\u00c5\u00a1e",
-      "kokodajsi": []
-    },
-    {
-      "uporabnisko_ime": "ne",
-      "geslo": "ne",
-      "kokodajsi": []
-    },
-    {
-      "uporabnisko_ime": "tako",
-      "geslo": "bo",
-      "kokodajsi": []
-    },
-    {
-      "uporabnisko_ime": "neki",
-      "geslo": "neki",
-      "kokodajsi": []
+      "uporabnisko_ime": "bine",
+      "geslo": "ana",
+      "sledeci": [],
+      "sledilci": 1
     }
   ]
 }

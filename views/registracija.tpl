@@ -18,7 +18,12 @@
 
     <center>
       <div class="container">
-       {{!base}}
+       %if vrednost_napake == 1:
+        <p style="color:red"><b>Vneseno uporabniško ime je že zasedeno!</b></p>
+       %elif vrednost_napake == 2:
+        <p style="color:red"><b>Registracija ni pravilno izpolnjena</b></p>
+       %end
+
         <form action="/registracija/" method="post">
             <label for="novo_up_ime"><b>uporabniško ime</b></label>
         <input type="text" placeholder="vpiši uporabniško ime" name="novo_up_ime" required>

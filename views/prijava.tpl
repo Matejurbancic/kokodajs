@@ -18,7 +18,9 @@
 
     <center>
       <div class="container">
-       {{!base}}
+       %if napaka:
+        <p style="color:red"><b>Uporabniško ime ali geslo ni pravilno</b></p>
+       %end
         <form action="/prijava/" method="post">
             <label for="uporabnisko_ime"><b>uporabniško ime</b></label>
         <input type="text" placeholder="vpiši uporabniško ime" name="uporabnisko_ime" required>

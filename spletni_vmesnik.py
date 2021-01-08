@@ -27,7 +27,7 @@ def prijava_post():
 
 @bottle.get('/registracija/')
 def registracija():
-    return bottle.template('registracija_osnova.tpl')
+    return bottle.template('registracija.tpl', vrednost_napake=0)
 
 @bottle.post('/registracija/')
 def registracija_preverjanje():
@@ -41,24 +41,17 @@ def registracija_preverjanje():
             bottle.response.set_cookie("uporabnik", novo_up_ime, path='/')
             return bottle.redirect('/kokodajs')
         else:
-            bottle.redirect('/registracija/neveljavno')
+            return bottle.template('registracija.tpl', vrednost_napake=1)
     else:
-        bottle.redirect('/registracija/napaka')
+        return bottle.template('registracija.tpl', vrednost_napake=2)
         
 
-@bottle.get('/registracija/napaka')
-def registracija():
-    return bottle.template('registracija_napaka.tpl')
 
-
-@bottle.get('/registracija/neveljavno')
-def registracija():
-    return bottle.template('registracija_neveljavno.tpl')
 
 
 @bottle.get('/prijava/')
 def prijava():
-    return bottle.template('prijava_osnovna.tpl')
+    return bottle.template('prijava.tpl', napaka=False)
 
 
 
@@ -72,14 +65,14 @@ def prijava_preverjanje():
         bottle.response.set_cookie("uporabnik", uporabnisko_ime, path='/')
         return bottle.redirect('/kokodajs')
     else:
-        bottle.redirect('/registracija/neveljavno')
+        return bottle.template('prijava.tpl', napaka=True)
 
 
 
 
-@bottle.get('/prijava/napaka')
-def registracija():
-    return bottle.template('prijava_napaka.tpl')
+#@bottle.get('/prijava/napaka')
+#def registracija():
+#    return bottle.template('prijava_napaka.tpl')
 
 
 
@@ -90,7 +83,7 @@ def kokodajs():
         bottle.redirect('/')
     else:
         uporabnisko_ime = bottle.request.get_cookie('uporabnik')
-        return bottle.template('glavna_stran.tpl', uporabnik = uporabnisko_ime)
+        return bottle.template('doma.tpl', uporabnik = uporabnisko_ime, napaka=False)
 
 
 @bottle.post('/kokodajs')
@@ -100,14 +93,48 @@ def nov_kokodajs():
     cas_kokodajsa = str(datetime.now())
 
     if len(kokodajs_tekst) > 140:
-        bottle.template('predolg_kokodajs.tpl')
+        return bottle.template('doma.tpl', uporabnik=uporabnisko_ime, napaka=True)
     else:
         dodaj_kokodajs(kokodajs_tekst, uporabnisko_ime, cas_kokodajsa)
-        return bottle.template('glavna_stran.tpl', uporabnik = uporabnisko_ime)
+        return bottle.template('doma.tpl', uporabnik = uporabnisko_ime, napaka=False)
 
 
 
     
+
+@bottle.get('/ne_sledeci')
+def vsi_ne_sledeci():
+    if not bottle.request.get_cookie('uporabnik'):
+        bottle.redirect('/')
+    trenutno_up_ime = bottle.request.get_cookie('uporabnik')
+    for uporabnik in preberi_datoteko(uporabniki_datoteka)['uporabniki']:
+        if trenutno_up_ime == uporabnik['uporabnisko_ime']:
+            t_uporabnik = uporabnik
+            return bottle.template('ne_sledeci.tpl', uporabniki=preberi_datoteko(uporabniki_datoteka)['uporabniki'], trenutni_uporabnik=t_uporabnik)
+
+
+
+@bottle.post('/ne_sledeci')
+def dodaj_sledenje():
+    t_uporabnik = bottle.request.get_cookie('uporabnik')
+    sledeci_uporabnik = bottle.request.forms['sledeci_uporabnik']
+    dodaj_sledilca(t_uporabnik, sledeci_uporabnik, uporabniki_datoteka)
+    bottle.redirect('/ne_sledeci')
+
+
+
+
+@bottle.get('/sledeci')
+def vsi_sledeci():
+    if not bottle.request.get_cookie('uporabnik'):
+        bottle.redirect('/')
+    trenutno_up_ime = bottle.request.get_cookie('uporabnik')
+    
+    for uporabnik in preberi_datoteko(uporabniki_datoteka)['uporabniki']:
+        if trenutno_up_ime == uporabnik['uporabnisko_ime']:
+            t_uporabnik = uporabnik
+            return bottle.template('sledeci.tpl', uporabniki=preberi_datoteko(uporabniki_datoteka)['uporabniki'], trenutni_uporabnik=t_uporabnik)
+
 
 
 
