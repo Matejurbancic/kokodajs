@@ -1,18 +1,4 @@
 {
   "uporabniki": [
-    {
-      "uporabnisko_ime": "ana",
-      "geslo": "bine",
-      "sledeci": [
-        "bine"
-      ],
-      "sledilci": 0
-    },
-    {
-      "uporabnisko_ime": "bine",
-      "geslo": "ana",
-      "sledeci": [],
-      "sledilci": 1
-    }
   ]
 }
