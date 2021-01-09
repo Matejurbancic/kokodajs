@@ -1,4 +1,23 @@
 {
   "kokodajsi": [
+    {
+      "uporabnik": "ana",
+      "tekst": "rerer",
+      "vsecki": [
+        "ana",
+        "tone"
+      ],
+      "cas": "2021-01-09 20:07:25"
+    },
+    {
+      "uporabnik": "ana",
+      "tekst": "zuzu",
+      "vsecki": [
+        "bine",
+        "ana",
+        "tone"
+      ],
+      "cas": "2021-01-09 20:10:30"
+    }
   ]
 }

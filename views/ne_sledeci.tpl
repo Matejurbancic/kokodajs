@@ -20,7 +20,7 @@
 
         <li class="list-group-item d-flex justify-content-between align-items-center">
          {{uporabnik['uporabnisko_ime']}}
-            <span class="badge bg-primary rounded-pill">{{uporabnik['sledilci']}}</span>
+            <center> <span class="badge bg-primary rounded-pill">{{uporabnik['sledilci']}}</span> </center>
             <form action="/ne_sledeci" method="POST"> 
             % sledeci_u = uporabnik['uporabnisko_ime']                 
             <input type="hidden" value="{{ sledeci_u }}" name="sledeci_uporabnik">

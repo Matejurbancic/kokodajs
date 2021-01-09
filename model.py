@@ -58,7 +58,7 @@ def dodaj_kokodajs(tekst_kokodajs, uporabnisko_ime): # doda nov kokodajs v kokod
 
 def dodaj_kokodajs(tekst_kokodajs, uporabnisko_ime, cas_kokodajsa): # doda nov kokodajs v kokodajsi.json
     prebrana_dat = preberi_datoteko(kokodajsi_datoteka)
-    nov_kokodajs = {"uporabnik": uporabnisko_ime, "tekst" : tekst_kokodajs, "vsecki" : 0, "cas": cas_kokodajsa}
+    nov_kokodajs = {"uporabnik": uporabnisko_ime, "tekst" : tekst_kokodajs, "vsecki" : [], "cas": cas_kokodajsa}
     prebrana_dat["kokodajsi"].append(nov_kokodajs)
     napisi_datoteko(prebrana_dat, kokodajsi_datoteka)
 
@@ -90,20 +90,22 @@ def odstrani_sledilca(trenutni_uporabnik, uporabnik_sledimo, json_datoteka):
 
 
 
-class Kokodajs():
+def dodaj_vsecek(kokodajs, uporabnisko_ime, json_datoteka):
+    kokodajsi = preberi_datoteko(json_datoteka)
+    for koko in kokodajsi['kokodajsi']:
+        if str(koko) == kokodajs:
+            print(koko)
+            if uporabnisko_ime not in koko['vsecki']:
+                koko['vsecki'].append(uporabnisko_ime)
+    napisi_datoteko(kokodajsi, json_datoteka=json_datoteka)
+
+
+            
+
+
     
-    def __init__(self, besedilo, uporabnik):
-        self.besedilo = besedilo
-        self.uporabnik = uporabnik
 
 
-
-class Uporabnik():
-
-    def __init__(self, uporabnisko_ime, geslo, sledeci=[], ):
-        self.uporabnisko_ime = uporabnisko_ime
-        self.geslo = geslo
-        self.sledeci = sledeci
 
 
 

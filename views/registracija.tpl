@@ -22,6 +22,8 @@
         <p style="color:red"><b>Vneseno uporabniško ime je že zasedeno!</b></p>
        %elif vrednost_napake == 2:
         <p style="color:red"><b>Registracija ni pravilno izpolnjena</b></p>
+        %elif vrednost_napake == 3:
+        <p style="color:red"><b>Uporabniško ime lahko vsebuje le ASCII znake</b></p>
        %end
 
         <form action="/registracija/" method="post">
