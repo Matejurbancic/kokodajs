@@ -28,6 +28,7 @@
             </form>
         </li>
         %end
+        %end
     </ul>
     </center>
 

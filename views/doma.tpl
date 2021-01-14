@@ -8,13 +8,13 @@
 
     <center>
       <div class="container">
-      <form action="/kokodajs" method="post">
-        <div class="input-group">
+        <form action="/kokodajs" method="post">
+          <div class="input-group">
             <span class="input-group-text"></span>
             <textarea class="form-control" aria-label="With textarea" name="kokodajs" rows="2" cols="40"></textarea>
             <input class="btn btn-primary" type="submit" value="kokodajsni">
-        </div>
-      </form>
+          </div>
+        </form>
     
       </div>
     </center>
@@ -25,12 +25,14 @@
     %end
     <br>
     <h7>Tvoji kokodajsi in kokodajsi oseb, ki jim slediš:</h7>
+
     %for indeks in range(len(kokodajsi) - 1, -1, -1):
     %  if kokodajsi[indeks]['uporabnik'] in uporabnik_niz['sledeci'] or  kokodajsi[indeks]['uporabnik'] == uporabnik:    
+    
     <ul class="list-group">
-    <li class="list-group-item active" aria-current="true"><p style="text-align:left;">
+      <li class="list-group-item active" aria-current="true"><p style="text-align:left;">
             {{kokodajsi[indeks]['uporabnik']}}
-    <span style="float:right;">
+      <span style="float:right;">
                 {{kokodajsi[indeks]['cas']}}
     </span>
     </p>
@@ -46,7 +48,7 @@
     </li>
     </ul>
     <br>
-
+      %end
     %end
 
 </div>
