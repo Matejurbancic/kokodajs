@@ -1,31 +1,10 @@
 {
   "uporabniki": [
     {
-      "uporabnisko_ime": "ana",
-      "geslo": "bine",
-      "sledeci": [],
-      "sledilci": 1
-    },
-    {
-      "uporabnisko_ime": "matej",
-      "geslo": "123",
-      "sledeci": [],
-      "sledilci": 1
-    },
-    {
-      "uporabnisko_ime": "luka",
-      "geslo": "321",
-      "sledeci": [
-        "ana",
-        "matej"
-      ],
-      "sledilci": 0
-    },
-    {
-      "uporabnisko_ime": "qsdsdvadfvsdv",
-      "geslo": "q",
-      "sledeci": [],
-      "sledilci": 0
+      "uporabnisko_ime": "uuu",
+      "geslo": "uuu",
+      "sledilci": 0,
+      "sledeci": []
     }
   ]
 }

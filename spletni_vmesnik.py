@@ -36,8 +36,8 @@ def registracija_preverjanje():
     geslo_pon = bottle.request.forms.get('geslo_ponovno')
 
 
-    if not novo_up_ime.isascii():
-        return bottle.template('registracija.tpl', vrednost_napake=3)
+    #if not novo_up_ime.isascii():
+    #    return bottle.template('registracija.tpl', vrednost_napake=3)
 
 
     if geslo == geslo_pon:
@@ -102,12 +102,12 @@ def nov_kokodajs():
     uporabnisko_ime = bottle.request.get_cookie('uporabnik')
     cas_kokodajsa = str(datetime.now())[:-7]
 
-    if not kokodajs_tekst.isascii():
-        vsi_kokodajsi = preberi_datoteko(kokodajsi_datoteka)['kokodajsi']
-        for uporabnik in preberi_datoteko(uporabniki_datoteka)['uporabniki']:
-            if uporabnik['uporabnisko_ime'] == uporabnisko_ime:
-                uporabnik_string = uporabnik
-        return bottle.template('doma.tpl', uporabnik = uporabnisko_ime, napaka=2, uporabnik_niz=uporabnik_string, kokodajsi=vsi_kokodajsi)
+    #if not kokodajs_tekst.isascii():
+    #    vsi_kokodajsi = preberi_datoteko(kokodajsi_datoteka)['kokodajsi']
+    #    for uporabnik in preberi_datoteko(uporabniki_datoteka)['uporabniki']:
+    #        if uporabnik['uporabnisko_ime'] == uporabnisko_ime:
+    #            uporabnik_string = uporabnik
+    #    return bottle.template('doma.tpl', uporabnik = uporabnisko_ime, napaka=2, uporabnik_niz=uporabnik_string, kokodajsi=vsi_kokodajsi)
 
 
     if len(kokodajs_tekst) > 140:
