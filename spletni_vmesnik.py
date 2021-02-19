@@ -197,33 +197,31 @@ def kokodajs():
 
 
 
+@bottle.get('/odjava')
+def odjava():
+    bottle.response.delete_cookie("uporabnik")
+    bottle.redirect('/')
 
 
 
 
-#@bottle.post('/registracija/')
-#uporabnik se registrira
-
-
-
-#@bottle.get('/osnovna/')
-#osnovna stran uporabnika
-
-
-
-#@bottle.get('/vsi/')
-#uporabnik lahko bere vse kokodajse
-
-
-
-#@bottle.get('/sledeči/')
-#uporabnik lahko bere kokodajse ostalih uporabnikov, ki jim sledi
 
 
 
 
-#@bottle.get('/sledenje/')
-#uporabnik lahko izbere komu bo sledil
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

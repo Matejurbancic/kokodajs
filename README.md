@@ -10,7 +10,7 @@ Naloži si kodo in poženi spletni_vmesnik.py. Odpri localhost:8080/ in opravi r
 
 
 # Opis funkcionalnosti
-
+V Kokodajsu se vsak uporabnik posebaj registrira in ima svoje uporabniško ime in geslo. Uporabnik lahko napiše Kokodajse, to so krajši sestavki iz maksimalno 140 znakov. Uporabnik lahko všečka svoje Kokodajse in Kokodajse drugih. Med vsemi uporabniki lahko izbere tiste, ki jim želi slediti. Kokodajse uporabnikov, ki jim sledi ima poleg svojih že na osnovi strani. Poleg tega lahko v posebnem zavihku vidi tudi Kokodajse vseh uporabnikov. 
 
 # Viri in literatura
 
