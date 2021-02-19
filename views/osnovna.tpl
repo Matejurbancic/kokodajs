@@ -11,26 +11,23 @@
     <title>Kokodajs</title>
   </head>
   <body>
-  <div class="container">
+    <div class="container">
       
     
-    <h1><center>Dobrodošli v Kokodajsu!</center></h1>
+      <h1><center>Dobrodošli v Kokodajsu!</center></h1>
 
-    <center>
-      <form action="/registracija_post/" method="POST">
-        <input type="hidden" value="se_ne_vem_kaj_bo" name="registarcija">
-        <input class="btn btn-primary" type="submit" value="registracija">
-      </form>
+      <center>
+        <form action="/registracija_post/" method="POST">
+          <input type="hidden" value="se_ne_vem_kaj_bo" name="registarcija">
+          <input class="btn btn-primary" type="submit" value="registracija">
+        </form>
     
-      <form action="/prijava_post/" method="POST">
-        <input type="hidden" value="nevem_kaj_bo" name="prijava">
-        <input class="btn btn-primary" type="submit" value="prijava">
-      </form>
-    
-    </center>
-
-
-  </div>
+        <form action="/prijava_post/" method="POST">
+          <input type="hidden" value="nevem_kaj_bo" name="prijava">
+          <input class="btn btn-primary" type="submit" value="prijava">
+        </form>
+      </center>
+    </div>
 
 
 

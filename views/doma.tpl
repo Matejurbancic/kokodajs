@@ -18,36 +18,38 @@
     
       </div>
     </center>
-    %if napaka == 1:
-    <p style="color:red"><b>Oddani kokodajs je predolg!</b></p>
-    %elif napaka == 2:
-    <p style="color:red"><b>Kokodajs lahko vsebuje le ASCII znake</b></p>
-    %end
-    <br>
-    <h7>Tvoji kokodajsi in kokodajsi oseb, ki jim slediš:</h7>
+      %if napaka == 1:
+        <p style="color:red"><b>Oddani kokodajs je predolg!</b></p>
+      %elif napaka == 2:
+        <p style="color:red"><b>Kokodajs lahko vsebuje le ASCII znake</b></p>
+      %end
+        <br>
 
-    %for indeks in range(len(kokodajsi) - 1, -1, -1):
-    %  if kokodajsi[indeks]['uporabnik'] in uporabnik_niz['sledeci'] or  kokodajsi[indeks]['uporabnik'] == uporabnik:    
+      <h7>Tvoji kokodajsi in kokodajsi oseb, ki jim slediš:</h7>
+
+      %for indeks in range(len(kokodajsi) - 1, -1, -1):
+       % if kokodajsi[indeks]['uporabnik'] in uporabnik_niz['sledeci'] or  kokodajsi[indeks]['uporabnik'] == uporabnik:    
     
     <ul class="list-group">
       <li class="list-group-item active" aria-current="true"><p style="text-align:left;">
             {{kokodajsi[indeks]['uporabnik']}}
-      <span style="float:right;">
+          <span style="float:right;">
                 {{kokodajsi[indeks]['cas']}}
-    </span>
-    </p>
-    </li>
-    <li class="list-group-item">{{kokodajsi[indeks]['tekst']}}
-    <span style="float:right;">
-        {{len(kokodajsi[indeks]['vsecki'])}} X všeč mi je 
-        <form action="/kokodajs_vseckanje" method="POST"> 
-        <input type="hidden" value="{{ kokodajsi[indeks] }}" name="vsec_mi_je">
-        <input class="btn btn-primary" type="submit" value="všeč mi je">
-        </form>
-    </span>
-    </li>
+          </span>
+        </p>
+      </li>
+
+      <li class="list-group-item">{{kokodajsi[indeks]['tekst']}}
+        <span style="float:right;">
+            {{len(kokodajsi[indeks]['vsecki'])}} X všeč mi je 
+          <form action="/kokodajs_vseckanje" method="POST"> 
+            <input type="hidden" value="{{ kokodajsi[indeks] }}" name="vsec_mi_je">
+            <input class="btn btn-primary" type="submit" value="všeč mi je">
+          </form>
+        </span>
+      </li>
     </ul>
-    <br>
+      <br>
       %end
     %end
 

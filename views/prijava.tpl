@@ -11,39 +11,38 @@
     <title>Kokodajs</title>
   </head>
   <body>
-  <div class="container">
+    <div class="container">
       
     
-    <h1><center>Prijava</center></h1>
+      <h1><center>Prijava</center></h1>
 
-    <center>
-      <div class="container">
-       %if napaka:
-        <p style="color:red"><b>Uporabniško ime ali geslo ni pravilno</b></p>
-       %end
-        <form action="/prijava/" method="post">
-            <label for="uporabnisko_ime"><b>uporabniško ime</b></label>
-        <input type="text" placeholder="vpiši uporabniško ime" name="uporabnisko_ime" required>
+      <center>
+        <div class="container">
+        %if napaka:
+          <p style="color:red"><b>Uporabniško ime ali geslo ni pravilno</b></p>
+        %end
+          <form action="/prijava/" method="post">
+              <label for="uporabnisko_ime"><b>uporabniško ime</b></label>
+          <input type="text" placeholder="vpiši uporabniško ime" name="uporabnisko_ime" required>
 
-        <label for="geslo"><b>geslo</b></label>
-        <input type="password" placeholder="vpiši geslo" name="geslo" required>
+          <label for="geslo"><b>geslo</b></label>
+          <input type="password" placeholder="vpiši geslo" name="geslo" required>
 
-        <input value="Registracija" type="submit" />
-
-
+          <input value="Registracija" type="submit" />
 
 
 
-        <!--   Username: <input name="username" type="text" />
+
+
+          <!--   Username: <input name="username" type="text" />
             Password: <input name="password" type="password" />
             <input value="Login" type="submit" /> -->
-        </form>
-    
+          </form>
+        </div>
+      </center>
+
+
       </div>
-    </center>
-
-
-  </div>
 
 
 

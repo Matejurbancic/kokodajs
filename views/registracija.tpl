@@ -11,47 +11,44 @@
     <title>Kokodajs</title>
   </head>
   <body>
-  <div class="container">
+    <div class="container">
       
     
-    <h1><center>Registracija</center></h1>
+      <h1><center>Registracija</center></h1>
 
-    <center>
-      <div class="container">
-       %if vrednost_napake == 1:
-        <p style="color:red"><b>Vneseno uporabniško ime je že zasedeno!</b></p>
-       %elif vrednost_napake == 2:
-        <p style="color:red"><b>Registracija ni pravilno izpolnjena</b></p>
-        %elif vrednost_napake == 3:
-        <p style="color:red"><b>Uporabniško ime lahko vsebuje le ASCII znake</b></p>
-       %end
+      <center>
+        <div class="container">
+        %if vrednost_napake == 1:
+          <p style="color:red"><b>Vneseno uporabniško ime je že zasedeno!</b></p>
+        %elif vrednost_napake == 2:
+          <p style="color:red"><b>Registracija ni pravilno izpolnjena</b></p>
+          %elif vrednost_napake == 3:
+          <p style="color:red"><b>Uporabniško ime lahko vsebuje le ASCII znake</b></p>
+          %end
 
-        <form action="/registracija/" method="post">
+          <form action="/registracija/" method="post">
             <label for="novo_up_ime"><b>uporabniško ime</b></label>
-        <input type="text" placeholder="vpiši uporabniško ime" name="novo_up_ime" required>
+            <input type="text" placeholder="vpiši uporabniško ime" name="novo_up_ime" required>
 
-        <label for="geslo"><b>geslo</b></label>
-        <input type="password" placeholder="vpiši geslo" name="geslo" required>
+            <label for="geslo"><b>geslo</b></label>
+            <input type="password" placeholder="vpiši geslo" name="geslo" required>
 
-        <label for="geslo_ponovno"><b> ponovi geslo</b></label>
-        <input type="password" placeholder="ponovno vpiši geslo" name="geslo_ponovno" required>
+            <label for="geslo_ponovno"><b> ponovi geslo</b></label>
+            <input type="password" placeholder="ponovno vpiši geslo" name="geslo_ponovno" required>
 
-        <input value="Registracija" type="submit" />
-
-
+          <input value="Registracija" type="submit" />
 
 
 
-        <!--   Username: <input name="username" type="text" />
-            Password: <input name="password" type="password" />
-            <input value="Login" type="submit" /> -->
-        </form>
-    
-      </div>
-    </center>
 
 
-  </div>
+            <!--   Username: <input name="username" type="text" />
+              Password: <input name="password" type="password" />
+              <input value="Login" type="submit" /> -->
+          </form>
+        </div>
+      </center>
+    </div>
 
 
 
