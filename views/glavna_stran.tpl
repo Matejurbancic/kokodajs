@@ -32,6 +32,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/ne_sledeci">vsi, ki jim ne slediš</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/odjava">odjava</a>
+        </li>
       </ul>
     </div>
   </div>
