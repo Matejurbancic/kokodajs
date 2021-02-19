@@ -1,0 +1,25 @@
+{
+  "uporabniki": [
+    {
+      "uporabnisko_ime": "uuu",
+      "geslo": "uuu",
+      "sledilci": 1,
+      "sledeci": []
+    },
+    {
+      "uporabnisko_ime": "matej",
+      "geslo": "krust",
+      "sledilci": 0,
+      "sledeci": [
+        "uuu",
+        "luka"
+      ]
+    },
+    {
+      "uporabnisko_ime": "luka",
+      "geslo": "buka",
+      "sledilci": 1,
+      "sledeci": []
+    }
+  ]
+}
