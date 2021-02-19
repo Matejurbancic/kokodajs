@@ -18,3 +18,4 @@ V Kokodajsu se vsak uporabnik posebaj registrira in ima svoje uporabniško ime i
 - [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 - [html "tags" ](https://www.w3schools.com/tags/default.asp)
 - [html tutorial](https://www.youtube.com/watch?v=UB1O30fR-EE)
+- [predlagano gradivo za obravnavo](https://ucilnica.fmf.uni-lj.si/mod/page/view.php?id=43035)
