@@ -1,3 +1,4 @@
+from PIL import Image
 from datetime import datetime
 import json
 import os
@@ -12,7 +13,7 @@ kokodajsi_datoteka =  os.path.join("data", "kokodajsi.json")
 def preberi_datoteko(json_datoteka):  #prebere json datoteko
     with open(json_datoteka, "r") as datoteka:
         vsebina_datoteke = json.load(datoteka)
-        
+        '''
         if json_datoteka == uporabniki_datoteka:
             dekodirana_vsebina = {'uporabniki': []}
             for uporabnik in vsebina_datoteke['uporabniki']:
@@ -37,14 +38,14 @@ def preberi_datoteko(json_datoteka):  #prebere json datoteko
                     vsecki_dekodirani.append(up_ime)#.encode().decode())
                 dekodiran_kokodajs['vsecki'] = vsecki_dekodirani
                 dekodirana_vsebina['kokodajsi'].append(dekodiran_kokodajs)
+        '''
 
-
-        return dekodirana_vsebina
+        return vsebina_datoteke
 
 
 def napisi_datoteko(vsebina_datoteke, json_datoteka):  #python kodo prenese nazaj v json datoteko
 
-
+    '''
     if json_datoteka == uporabniki_datoteka:
         kodirana_vsebina = {'uporabniki': []}
         for uporabnik in vsebina_datoteke['uporabniki']:
@@ -69,9 +70,9 @@ def napisi_datoteko(vsebina_datoteke, json_datoteka):  #python kodo prenese naza
                 vsecki_kodirani.append(up_ime.encode().decode())
             kodiran_kokodajs['vsecki'] = vsecki_kodirani
             kodirana_vsebina['kokodajsi'].append(kodiran_kokodajs)
-    
+    '''
     with  open(json_datoteka, "w") as datoteka:
-        json.dump(kodirana_vsebina, datoteka, indent=2)
+        json.dump(vsebina_datoteke, datoteka, indent=2)
 
 
 def dodaj_uporabnika(uporabnisko_ime, geslo): # doda novega uporabnika v json
@@ -82,7 +83,7 @@ def dodaj_uporabnika(uporabnisko_ime, geslo): # doda novega uporabnika v json
 
 
 
-def veljavno_uporabniško_ime(novo_up_ime, geslo): #preveri ali je uporabniško ime v jsonu že zasedeno
+def veljavno_uporabnisko_ime(novo_up_ime, geslo): #preveri ali je uporabniško ime v jsonu že zasedeno
     prebrana_dat = preberi_datoteko(uporabniki_datoteka)
     for uporabnik in prebrana_dat["uporabniki"]:
         if uporabnik["uporabnisko_ime"] == novo_up_ime:
@@ -152,8 +153,6 @@ def dodaj_vsecek(kokodajs, uporabnisko_ime, json_datoteka):
             if uporabnisko_ime not in koko['vsecki']:
                 koko['vsecki'].append(uporabnisko_ime)
     napisi_datoteko(kokodajsi, json_datoteka=json_datoteka)
-
-    
 
 
 

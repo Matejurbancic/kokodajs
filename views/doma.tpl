@@ -2,6 +2,9 @@
 
 <div class="container">
       
+
+
+
     
     <h4><center>Živijo {{uporabnik}}!</center></h4>
     <h7>Napiši kokodajs: max 140 znakov</h7>
@@ -15,6 +18,8 @@
             <input class="btn btn-primary" type="submit" value="kokodajsni">
           </div>
         </form>
+        
+        
     
       </div>
     </center>

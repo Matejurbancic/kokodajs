@@ -21,7 +21,7 @@
           <input type="hidden" value="se_ne_vem_kaj_bo" name="registarcija">
           <input class="btn btn-primary" type="submit" value="registracija">
         </form>
-    
+        
         <form action="/prijava_post/" method="POST">
           <input type="hidden" value="nevem_kaj_bo" name="prijava">
           <input class="btn btn-primary" type="submit" value="prijava">
