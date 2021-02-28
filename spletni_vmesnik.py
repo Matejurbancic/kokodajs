@@ -38,9 +38,6 @@ def registracija_preverjanje():
     geslo_pon = bottle.request.forms.geslo_ponovno
 
 
-    #if not novo_up_ime.isascii():
-    #    return bottle.template('registracija.tpl', vrednost_napake=3)
-
 
     if geslo == geslo_pon:
         if veljavno_uporabnisko_ime(novo_up_ime, geslo):
@@ -78,26 +75,17 @@ def prijava_preverjanje():
 
 
 
-#@bottle.get('/prijava/napaka')
-#def registracija():
-#    return bottle.template('prijava_napaka.tpl')
-
-
-
-
 @bottle.get('/kokodajs')
 def kokodajs():
     if not bottle.request.cookies.uporabnik:
         bottle.redirect('/')
     else:
         uporabnisko_ime = bottle.request.cookies.uporabnik
-        #print(uporabnisko_ime)
-        vsi_kokodajsi = preberi_datoteko(kokodajsi_datoteka)['kokodajsi']
-        for uporabnik in preberi_datoteko(uporabniki_datoteka)['uporabniki']:
-            if uporabnik['uporabnisko_ime'] == uporabnisko_ime:
-                uporabnik_niz = uporabnik
-
-        return bottle.template('doma.tpl', uporabnik = uporabnisko_ime, napaka=0, kokodajsi=vsi_kokodajsi, uporabnik_niz=uporabnik_niz)
+        return bottle.template('doma.tpl',
+                                uporabnik = uporabnisko_ime,
+                                napaka=0, 
+                                kokodajsi=najdi_uporabnika(uporabnisko_ime)[0],
+                                uporabnik_niz=najdi_uporabnika(uporabnisko_ime)[1])
 
 
 @bottle.post('/kokodajs')
@@ -106,16 +94,12 @@ def nov_kokodajs():
     uporabnisko_ime = bottle.request.cookies.uporabnik
     cas_kokodajsa = str(datetime.now())[:-7]
 
-
-
-
     if len(kokodajs_tekst) > 140:
-        vsi_kokodajsi = preberi_datoteko(kokodajsi_datoteka)['kokodajsi']
-        for uporabnik in preberi_datoteko(uporabniki_datoteka)['uporabniki']:
-            if uporabnik['uporabnisko_ime'] == uporabnisko_ime:
-                uporabnik_string = uporabnik
-
-        return bottle.template('doma.tpl', uporabnik = uporabnisko_ime, napaka=1, uporabnik_niz=uporabnik_string, kokodajsi=vsi_kokodajsi)
+        return bottle.template('doma.tpl',
+                                uporabnik = uporabnisko_ime, 
+                                napaka=1, 
+                                uporabnik_niz=najdi_uporabnika(uporabnisko_ime)[1], 
+                                kokodajsi=najdi_uporabnika(uporabnisko_ime)[0])
         
     else:
         dodaj_kokodajs(kokodajs_tekst, uporabnisko_ime, cas_kokodajsa)
@@ -128,6 +112,7 @@ def vseckanje():
     kokodajs_vseckan = bottle.request.forms.vsec_mi_je
     dodaj_vsecek(kokodajs_vseckan, uporabnisko_ime, kokodajsi_datoteka)
     bottle.redirect('/kokodajs')
+
 
 @bottle.post('/kokodajs_vseckanje_vsi_kokodajsi')
 def vseckanje():
@@ -145,10 +130,8 @@ def vsi_ne_sledeci():
     if not bottle.request.cookies.uporabnik:
         bottle.redirect('/')
     trenutno_up_ime = bottle.request.cookies.uporabnik
-    for uporabnik in preberi_datoteko(uporabniki_datoteka)['uporabniki']:
-        if trenutno_up_ime == uporabnik['uporabnisko_ime']:
-            t_uporabnik = uporabnik
-            return bottle.template('ne_sledeci.tpl', uporabniki=preberi_datoteko(uporabniki_datoteka)['uporabniki'], trenutni_uporabnik=t_uporabnik)
+
+    return bottle.template('ne_sledeci.tpl', uporabniki=preberi_datoteko(uporabniki_datoteka)['uporabniki'], trenutni_uporabnik=trenutni_uporabnik(trenutno_up_ime))
 
 
 
@@ -168,10 +151,7 @@ def vsi_sledeci():
         bottle.redirect('/')
     trenutno_up_ime = bottle.request.cookies.uporabnik
 
-    for uporabnik in preberi_datoteko(uporabniki_datoteka)['uporabniki']:
-        if trenutno_up_ime == uporabnik['uporabnisko_ime']:
-            t_uporabnik = uporabnik
-            return bottle.template('sledeci.tpl', uporabniki=preberi_datoteko(uporabniki_datoteka)['uporabniki'], trenutni_uporabnik=t_uporabnik)
+    return bottle.template('sledeci.tpl', uporabniki=preberi_datoteko(uporabniki_datoteka)['uporabniki'], trenutni_uporabnik=trenutni_uporabnik(trenutno_up_ime))
 
 
 
@@ -191,7 +171,7 @@ def kokodajs():
     else:
         uporabnisko_ime = bottle.request.cookies.uporabnik
         vsi_kokodajsi = preberi_datoteko(kokodajsi_datoteka)['kokodajsi']
-        print(len(vsi_kokodajsi))
+        
         return bottle.template('vsi_kokodajsi.tpl', kokodajsi=vsi_kokodajsi)
 
 

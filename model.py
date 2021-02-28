@@ -1,4 +1,3 @@
-from PIL import Image
 from datetime import datetime
 import json
 import os
@@ -6,71 +5,59 @@ import os
 
 
 uporabniki_datoteka =  os.path.join("data", "uporabniki.json")
-print(os.path.join("data", "uporabniki.json"))
+
 kokodajsi_datoteka =  os.path.join("data", "kokodajsi.json")
+
+
+#Z razredi
+
+class Uporabnik():
+
+    def __init__(self, uporabnisko_ime, geslo, sledeci, sledilci):
+        self.uporabnisko_ime = uporabnisko_ime
+        self.geslo = geslo
+        self.sledeci = sledeci
+        self.sledilci = sledilci
+
+    def doloci_uporabnika(self, uporabniki_datoteka):
+        with open(json_datoteka, "r") as datoteka:
+        vsebina_datoteke = json.load(datoteka)
+        
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def preberi_datoteko(json_datoteka):  #prebere json datoteko
     with open(json_datoteka, "r") as datoteka:
         vsebina_datoteke = json.load(datoteka)
-        '''
-        if json_datoteka == uporabniki_datoteka:
-            dekodirana_vsebina = {'uporabniki': []}
-            for uporabnik in vsebina_datoteke['uporabniki']:
-                dekodiran_uporabnik = {}
-                dekodiran_uporabnik['uporabnisko_ime'] = uporabnik['uporabnisko_ime']#.encode().decode()
-                dekodiran_uporabnik['geslo'] = uporabnik['geslo']#.encode().decode()
-                dekodiran_uporabnik['sledilci'] = uporabnik['sledilci']
-                sledeci_dekodirani = []
-                for up_ime in uporabnik['sledeci']:
-                    sledeci_dekodirani.append(up_ime)#.encode().decode())
-                dekodiran_uporabnik['sledeci'] = sledeci_dekodirani
-                dekodirana_vsebina['uporabniki'].append(dekodiran_uporabnik)
-        elif json_datoteka == kokodajsi_datoteka:
-            dekodirana_vsebina = {'kokodajsi': []}
-            for kokodajs in vsebina_datoteke['kokodajsi']:
-                dekodiran_kokodajs = {}
-                dekodiran_kokodajs['uporabnik'] = kokodajs['uporabnik']#.encode().decode()
-                dekodiran_kokodajs['tekst'] = kokodajs['tekst']#.encode().decode()
-                dekodiran_kokodajs['cas'] = kokodajs['cas']
-                vsecki_dekodirani = []
-                for up_ime in kokodajs['vsecki']:
-                    vsecki_dekodirani.append(up_ime)#.encode().decode())
-                dekodiran_kokodajs['vsecki'] = vsecki_dekodirani
-                dekodirana_vsebina['kokodajsi'].append(dekodiran_kokodajs)
-        '''
 
         return vsebina_datoteke
 
 
 def napisi_datoteko(vsebina_datoteke, json_datoteka):  #python kodo prenese nazaj v json datoteko
 
-    '''
-    if json_datoteka == uporabniki_datoteka:
-        kodirana_vsebina = {'uporabniki': []}
-        for uporabnik in vsebina_datoteke['uporabniki']:
-            kodiran_uporabnik = {}
-            kodiran_uporabnik['uporabnisko_ime'] = uporabnik['uporabnisko_ime'].encode().decode()
-            kodiran_uporabnik['geslo'] = uporabnik['geslo'].encode().decode()
-            kodiran_uporabnik['sledilci'] = uporabnik['sledilci']
-            sledeci_kodirani = []
-            for up_ime in uporabnik['sledeci']:
-                sledeci_kodirani.append(up_ime.encode().decode())
-            kodiran_uporabnik['sledeci'] = sledeci_kodirani
-            kodirana_vsebina['uporabniki'].append(kodiran_uporabnik)
-    elif json_datoteka == kokodajsi_datoteka:
-        kodirana_vsebina = {'kokodajsi': []}
-        for kokodajs in vsebina_datoteke['kokodajsi']:
-            kodiran_kokodajs = {}
-            kodiran_kokodajs['uporabnik'] = kokodajs['uporabnik'].encode().decode()
-            kodiran_kokodajs['tekst'] = kokodajs['tekst'].encode().decode()
-            kodiran_kokodajs['cas'] = kokodajs['cas']
-            vsecki_kodirani = []
-            for up_ime in kokodajs['vsecki']:
-                vsecki_kodirani.append(up_ime.encode().decode())
-            kodiran_kokodajs['vsecki'] = vsecki_kodirani
-            kodirana_vsebina['kokodajsi'].append(kodiran_kokodajs)
-    '''
     with  open(json_datoteka, "w") as datoteka:
         json.dump(vsebina_datoteke, datoteka, indent=2)
 
@@ -99,13 +86,7 @@ def veljavna_registracija(uporabnisko_ime, geslo): # preveri če se uporabniško
             return True
     return False
 
-'''
-def dodaj_kokodajs(tekst_kokodajs, uporabnisko_ime): # doda nov kokodajs v kokodajsi.json
-    prebrana_dat = preberi_datoteko(kokodajsi_datoteka)
-    nov_kokodajs = {"uporabnik": uporabnisko_ime, "tekst" : tekst_kokodajs, "vsecki" : 0}
-    prebrana_dat["kokodajsi"].append(nov_kokodajs)
-    napisi_datoteko(prebrana_dat, kokodajsi_datoteka)
-'''
+
 
 
 
@@ -158,6 +139,17 @@ def dodaj_vsecek(kokodajs, uporabnisko_ime, json_datoteka):
 
 
 
+def najdi_uporabnika(uporabnisko):
+    vsi_kokodajsi = preberi_datoteko(kokodajsi_datoteka)['kokodajsi']
+    for uporabnik in preberi_datoteko(uporabniki_datoteka)['uporabniki']:
+        if uporabnik['uporabnisko_ime'] == uporabnisko:
+            uporabnik_niz = uporabnik
+    return (vsi_kokodajsi, uporabnik_niz)
 
 
+def trenutni_uporabnik(trenutno_up_ime):
+    for uporabnik in preberi_datoteko(uporabniki_datoteka)['uporabniki']:
+        if trenutno_up_ime == uporabnik['uporabnisko_ime']:
+            t_uporabnik = uporabnik
+            return t_uporabnik
 
