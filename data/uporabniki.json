@@ -1,25 +1,4 @@
-{
-  "uporabniki": [
-    {
-      "uporabnisko_ime": "uuu",
-      "geslo": "uuu",
-      "sledilci": 1,
-      "sledeci": []
-    },
-    {
-      "uporabnisko_ime": "matej",
-      "geslo": "krust",
-      "sledilci": 0,
-      "sledeci": [
-        "uuu",
-        "luka"
-      ]
-    },
-    {
-      "uporabnisko_ime": "luka",
-      "geslo": "buka",
-      "sledilci": 1,
-      "sledeci": []
-    }
-  ]
-}
+[
+  "{\"uporabnisko_ime\": \"bine\", \"geslo\": \"ana\", \"sledeci\": [], \"sledilci\": 1}",
+  "{\"uporabnisko_ime\": \"ana\", \"geslo\": \"bine\", \"sledeci\": [\"bine\"], \"sledilci\": 0}"
+]

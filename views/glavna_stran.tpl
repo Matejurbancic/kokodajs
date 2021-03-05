@@ -38,13 +38,10 @@
           <a class="nav-link active" aria-current="page" href="/kokodajs">doma</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/sledeci">vsi, ki jim slediš</a>
+          <a class="nav-link active" aria-current="page" href="/uporabniki">uporabniki</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/vsi_kokodajsi">vsi kokodajsi</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/ne_sledeci">vsi, ki jim ne slediš</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/odjava">odjava</a>

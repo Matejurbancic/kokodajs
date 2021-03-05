@@ -9,21 +9,21 @@
     
     <br>
     
-    %for indeks in range(len(kokodajsi) - 1, -1, -1):
+    %for indeks in range(len(kokodajsi.seznam) - 1, -1, -1):
      <ul class="list-group">
     <li class="list-group-item active" aria-current="true">
         <p style="text-align:left;">
-                {{kokodajsi[indeks]['uporabnik']}}
+                {{kokodajsi.seznam[indeks].uporabnik}}
             <span style="float:right;">
-                {{kokodajsi[indeks]['cas']}}
+                {{kokodajsi.seznam[indeks].cas}}
             </span>
         </p>
     </li>
-        <li class="list-group-item">{{kokodajsi[indeks]['tekst']}}
+        <li class="list-group-item">{{kokodajsi.seznam[indeks].tekst}}
             <span style="float:right;">
-                {{len(kokodajsi[indeks]['vsecki'])}} X všeč mi je
+                {{len(kokodajsi.seznam[indeks].vsecki)}} X všeč mi je
                 <form action="/kokodajs_vseckanje_vsi_kokodajsi" method="POST"> 
-                    <input type="hidden" value="{{ kokodajsi[indeks] }}" name="vsec_mi_je">
+                    <input type="hidden" value="{{ (kokodajsi.seznam[indeks].uporabnik, kokodajsi.seznam[indeks].tekst, kokodajsi.seznam[indeks].cas) }}" name="vsec_mi_je">
                     <input class="btn btn-primary" type="submit" value="všeč mi je">
                 </form>
             </span>
