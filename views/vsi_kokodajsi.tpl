@@ -23,7 +23,7 @@
             <span style="float:right;">
                 {{len(kokodajsi.seznam[indeks].vsecki)}} X všeč mi je
                 <form action="/kokodajs_vseckanje_vsi_kokodajsi" method="POST"> 
-                    <input type="hidden" value="{{ (kokodajsi.seznam[indeks].uporabnik, kokodajsi.seznam[indeks].tekst, kokodajsi.seznam[indeks].cas) }}" name="vsec_mi_je">
+                    <input type="hidden" value="{{indeks}}" name="vsec_mi_je">
                     <input class="btn btn-primary" type="submit" value="všeč mi je">
                 </form>
             </span>

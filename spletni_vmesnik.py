@@ -116,18 +116,13 @@ def nov_kokodajs():
 @bottle.post('/kokodajs_vseckanje')
 def vseckanje():
     uporabnisko_ime = bottle.request.cookies.uporabnik
-    kokodajs_vseckan = bottle.request.forms.vsec_mi_je
+    indeks_vseckan = int(bottle.request.forms.vsec_mi_je)
 
     kokodajsi = Seznam_objektov.iz_json(kokodajsi_datoteka)
 
-    for i in range(len(kokodajsi.seznam)):
-        if str((kokodajsi.seznam[i].uporabnik, kokodajsi.seznam[i].tekst,
-                kokodajsi.seznam[i].cas)) == kokodajs_vseckan:
-
-            if uporabnisko_ime not in kokodajsi.seznam[i].vsecki:
-                kokodajsi.seznam[i].vsecki.append(uporabnisko_ime)
-                kokodajsi.v_json(kokodajsi_datoteka)
-                break
+    if uporabnisko_ime not in kokodajsi.seznam[indeks_vseckan].vsecki:
+        kokodajsi.seznam[indeks_vseckan].vsecki.append(uporabnisko_ime)
+        kokodajsi.v_json(kokodajsi_datoteka)            
 
     bottle.redirect('/kokodajs')
 
@@ -135,18 +130,13 @@ def vseckanje():
 @bottle.post('/kokodajs_vseckanje_vsi_kokodajsi')
 def vseckanje():
     uporabnisko_ime = bottle.request.cookies.uporabnik
-    kokodajs_vseckan = bottle.request.forms.vsec_mi_je
+    indeks_vseckan = int(bottle.request.forms.vsec_mi_je)
 
     kokodajsi = Seznam_objektov.iz_json(kokodajsi_datoteka)
 
-    for i in range(len(kokodajsi.seznam)):
-        if str((kokodajsi.seznam[i].uporabnik, kokodajsi.seznam[i].tekst,
-                kokodajsi.seznam[i].cas)) == kokodajs_vseckan:
-
-            if uporabnisko_ime not in kokodajsi.seznam[i].vsecki:
-                kokodajsi.seznam[i].vsecki.append(uporabnisko_ime)
-                kokodajsi.v_json(kokodajsi_datoteka)
-                break
+    if uporabnisko_ime not in kokodajsi.seznam[indeks_vseckan].vsecki:
+        kokodajsi.seznam[indeks_vseckan].vsecki.append(uporabnisko_ime)
+        kokodajsi.v_json(kokodajsi_datoteka)
 
     bottle.redirect('/vsi_kokodajsi')
 
